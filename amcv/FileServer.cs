@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,7 +25,8 @@ namespace amcv
                     HttpListenerContext context = listener.GetContext();
                     Task.Factory.StartNew((ctx) =>
                     {
-                        WriteFile((HttpListenerContext)ctx, @"C:\Users\BenMac\source\repos\amcv\amcv\bin\Debug\public.cer");
+                        
+                        WriteFile((HttpListenerContext)ctx, Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "public.cer"));
                     }, context, TaskCreationOptions.LongRunning);
                 }
             }, TaskCreationOptions.LongRunning);
