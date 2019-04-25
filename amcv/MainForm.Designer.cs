@@ -43,8 +43,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SaveResultButton = new System.Windows.Forms.Button();
-            this.SendAnalyzedDataButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.SendAnalyzedDataButton = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +65,6 @@
             this.listView1.Size = new System.Drawing.Size(1184, 214);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            
             // 
             // typeHeader
             // 
@@ -155,13 +158,15 @@
             this.flowLayoutPanel2.Controls.Add(this.label3);
             this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel1);
             this.flowLayoutPanel2.Controls.Add(this.listView1);
+            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.listView2);
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.SendAnalyzedDataButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1199, 656);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1229, 935);
             this.flowLayoutPanel2.TabIndex = 6;
             this.flowLayoutPanel2.WrapContents = false;
             // 
@@ -209,39 +214,73 @@
             this.SaveResultButton.UseVisualStyleBackColor = true;
             this.SaveResultButton.Click += new System.EventHandler(this.SaveResultButton_Click);
             // 
-            // SendAnalyzedDataButton
-            // 
-            this.SendAnalyzedDataButton.AutoSize = true;
-            this.SendAnalyzedDataButton.Enabled = false;
-            this.SendAnalyzedDataButton.Location = new System.Drawing.Point(3, 638);
-            this.SendAnalyzedDataButton.Name = "SendAnalyzedDataButton";
-            this.SendAnalyzedDataButton.Size = new System.Drawing.Size(1184, 44);
-            this.SendAnalyzedDataButton.TabIndex = 11;
-            this.SendAnalyzedDataButton.Text = "Send data to the devlopers by email for analyzing the the request.\r\nI promise you" +
-    " to treat the data confidentially.";
-            this.SendAnalyzedDataButton.UseVisualStyleBackColor = true;
-            this.SendAnalyzedDataButton.Click += new System.EventHandler(this.SendAnalyzedDataButton_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 601);
+            this.label5.Location = new System.Drawing.Point(3, 843);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(500, 34);
             this.label5.TabIndex = 13;
             this.label5.Text = "You can replay the request using the context menu.\r\nReplay URL is always ther 360" +
     "-Cloud (https://q.smart.360.cn/clean/cmd/send).";
             // 
-            // Form1
+            // SendAnalyzedDataButton
+            // 
+            this.SendAnalyzedDataButton.AutoSize = true;
+            this.SendAnalyzedDataButton.Enabled = false;
+            this.SendAnalyzedDataButton.Location = new System.Drawing.Point(3, 880);
+            this.SendAnalyzedDataButton.Name = "SendAnalyzedDataButton";
+            this.SendAnalyzedDataButton.Size = new System.Drawing.Size(1184, 44);
+            this.SendAnalyzedDataButton.TabIndex = 11;
+            this.SendAnalyzedDataButton.Text = "Send data to the devlopers by email for analyzing the request.\r\nI promise you to " +
+    "treat the data confidentially.";
+            this.SendAnalyzedDataButton.UseVisualStyleBackColor = true;
+            this.SendAnalyzedDataButton.Click += new System.EventHandler(this.SendAnalyzedDataButton_Click);
+            // 
+            // listView2
+            // 
+            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listView2.Location = new System.Drawing.Point(3, 626);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(1184, 214);
+            this.listView2.TabIndex = 14;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Type";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Data";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 601);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label6.Size = new System.Drawing.Size(1184, 22);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Captured Data (unknown commands).";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1199, 656);
+            this.ClientSize = new System.Drawing.Size(1229, 935);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.label4);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Analyze My Chinese Vacuum";
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
@@ -270,6 +309,10 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button SaveResultButton;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
 

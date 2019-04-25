@@ -123,9 +123,26 @@ namespace amcv
             tEngine.CompleteHandler += TEngine_CompleteHandler;
             tEngine.CookieLoaded += TEngine_CookieLoaded;
 
+            tEngine.UnknownCommandReceived += TEngine_UnknownCommandReceived;
+
             StartProxyButton.Text = "Stop Proxy";
             StartProxyButton.Click -= StartProxyButton_Click;
             StartProxyButton.Click += StartProxyButton_Click1;
+        }
+
+        private void TEngine_UnknownCommandReceived(object sender, UnknownCommandEventArgs e)
+        {
+            List<string> row = new List<string> { "unknown-command", e.command };
+
+            ListViewItem item = new ListViewItem(row.ToArray());
+            item.Tag = "unknown-command";
+
+            listView2.Invoke((MethodInvoker)delegate {
+                // Running on the UI thread
+                listView2.Items.Add(item);
+                listView2.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listView2.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            });
         }
 
         private void TEngine_CompleteHandler(object sender, EventArgs e)

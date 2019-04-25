@@ -21,6 +21,8 @@ namespace amcv
         public event EventHandler<EventArgs>  CompleteHandler, CookieLoaded, StopCommandLoaded, StartCommandLoaded,
                                               ChargeCommandLoaded;
 
+        public event EventHandler<UnknownCommandEventArgs> UnknownCommandReceived;
+
         ProxyServer myProxy;
 
         static string cerCertpath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "public.cer");
@@ -49,9 +51,7 @@ namespace amcv
             myProxy.AddEndPoint(explicitEndPoint);
 
             WriteCertificate();
-            
-       //     myProxy.SetAsSystemHttpProxy(explicitEndPoint);
-       //     myProxy.SetAsSystemHttpsProxy(explicitEndPoint);
+           
         }
 
         public void ProxyStart()
@@ -93,7 +93,6 @@ namespace amcv
 
         private async Task MyProxy_BeforeRequest(object sender, Titanium.Web.Proxy.EventArguments.SessionEventArgs e)
         {
-            //Console.WriteLine(e.HttpClient.Request.Url);
             if (e.HttpClient.Request.Url.Contains("q.smart.360.cn/clean/cmd/send"))
             {
                 var requestHeaders = e.HttpClient.Request.Headers;
@@ -111,8 +110,7 @@ namespace amcv
                 }
 
                 var body = Encoding.UTF8.GetString(await e.GetRequestBody());
-
-                if (body.Contains("data=%7B%22mode%22%3A%22smartClean%22%7D&devType=3&from=mpc_ios&infoType=21005"))
+                if (body.Contains("infoType=21005"))
                 {
                     if (string.IsNullOrEmpty(cmdModel.StartCleaningCommand))
                     {
@@ -120,7 +118,7 @@ namespace amcv
                         StartCommandLoaded(this, null);
                     }
                 }
-                else if(body.Contains("data=%7B%22cmd%22%3A%22pause%22%7D&devType=3&from=mpc_ios&infoType=21017"))
+                else if (body.Contains("infoType=21017"))
                 {
                     if (string.IsNullOrEmpty(cmdModel.StopCleaningCommand))
                     {
@@ -128,13 +126,17 @@ namespace amcv
                         StopCommandLoaded(this, null);
                     }
                 }
-                else if(body.Contains("data=%7B%22cmd%22%3A%22start%22%7D&devType=3&from=mpc_ios&infoType=21012"))
+                else if (body.Contains("infoType=21012"))
                 {
                     if (string.IsNullOrEmpty(cmdModel.ChargeCleaningCommand))
                     {
                         cmdModel.ChargeCleaningCommand = body;
                         ChargeCommandLoaded(this, null);
                     }
+                }
+                else
+                {
+                    UnknownCommandReceived(this, new UnknownCommandEventArgs { command = body } );
                 }
             }
            // return Task.FromResult(0);
@@ -144,5 +146,10 @@ namespace amcv
                 CompleteHandler(this, null);
             }
         }
+    }
+
+    class UnknownCommandEventArgs : EventArgs
+    {
+        public string command { get; set; }
     }
 }
