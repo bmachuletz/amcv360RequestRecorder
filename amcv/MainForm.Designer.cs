@@ -43,12 +43,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SaveResultButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.SendAnalyzedDataButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
             this.typeHeaderUnknown = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dataHeaderUnknown = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.SendAnalyzedDataButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +65,7 @@
             this.listView1.Size = new System.Drawing.Size(1184, 214);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // typeHeader
             // 
@@ -214,6 +215,42 @@
             this.SaveResultButton.UseVisualStyleBackColor = true;
             this.SaveResultButton.Click += new System.EventHandler(this.SaveResultButton_Click);
             // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 601);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label6.Size = new System.Drawing.Size(1184, 22);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Captured Data (unknown commands).";
+            // 
+            // listView2
+            // 
+            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.typeHeaderUnknown,
+            this.dataHeaderUnknown});
+            this.listView2.GridLines = true;
+            this.listView2.Location = new System.Drawing.Point(3, 626);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(1184, 214);
+            this.listView2.TabIndex = 14;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // typeHeaderUnknown
+            // 
+            this.typeHeaderUnknown.Text = "Type";
+            // 
+            // dataHeaderUnknown
+            // 
+            this.dataHeaderUnknown.Text = "Data";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -236,40 +273,6 @@
     "treat the data confidentially.";
             this.SendAnalyzedDataButton.UseVisualStyleBackColor = true;
             this.SendAnalyzedDataButton.Click += new System.EventHandler(this.SendAnalyzedDataButton_Click);
-            // 
-            // listView2
-            // 
-            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.typeHeaderUnknown,
-            this.dataHeaderUnknown});
-            this.listView2.Location = new System.Drawing.Point(3, 626);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(1184, 214);
-            this.listView2.TabIndex = 14;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
-            // typeHeaderUnknown
-            // 
-            this.typeHeaderUnknown.Text = "Type";
-            // 
-            // dataHeaderUnknown
-            // 
-            this.dataHeaderUnknown.Text = "Data";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 601);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label6.Size = new System.Drawing.Size(1184, 22);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Captured Data (unknown commands).";
             // 
             // MainForm
             // 
