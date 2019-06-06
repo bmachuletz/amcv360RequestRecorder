@@ -123,7 +123,7 @@ namespace amcv
             tEngine.CompleteHandler += TEngine_CompleteHandler;
             tEngine.CookieLoaded += TEngine_CookieLoaded;
 
-            tEngine.UnknownCommandReceived += TEngine_UnknownCommandReceived;
+            tEngine.UnknownCommandReceived += TEngine_UnknownCommandReceived; 
 
             StartProxyButton.Text = "Stop Proxy";
             StartProxyButton.Click -= StartProxyButton_Click;
