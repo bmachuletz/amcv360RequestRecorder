@@ -18,6 +18,6 @@ This commandline application can be compiled on Windows, Linux and MacOS.
 **StopCleaning**<br>
 360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c stop<br><br>
 **GoCharging**<br>
-360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c charge<br>br>
+360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c charge<br><br>
 
 
