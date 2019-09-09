@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace amcv
 {
-    class CommandModel
+    public class CommandModel
     {
         [Flags]
         public enum CommandsFlags
