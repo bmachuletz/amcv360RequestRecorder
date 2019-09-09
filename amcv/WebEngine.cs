@@ -1,11 +1,6 @@
-﻿using Org.BouncyCastle.Asn1.Ocsp;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace amcv
 {
