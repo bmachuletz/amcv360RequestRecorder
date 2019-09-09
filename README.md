@@ -13,9 +13,7 @@ If you want to help me, please send me the resulting .json-file to amcv@mnetworx
 360Cmd can be executed from commandline or be called from any thirdparty application (like iobroker, openhab, fhem, etc.) 
 This commandline application can be compiled on Windows, Linux and MacOS.
 
-usage:
+*usage
 360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c start
-
 360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c stop
-
 360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c charge
