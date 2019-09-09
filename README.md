@@ -15,5 +15,7 @@ This commandline application can be compiled on Windows, Linux and MacOS.
 
 usage:
 360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c start
+
 360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c stop
+
 360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c charge
