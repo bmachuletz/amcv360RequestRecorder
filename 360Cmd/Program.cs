@@ -39,30 +39,32 @@ namespace _360Cmd
                 }
             });
 
-
-            if(fInfo.Exists)
+            if (cmdFlags != CommandModel.CommandsFlags.None)
             {
-                string cmdString = string.Empty;
-                string requestFileText = File.ReadAllText(fInfo.FullName);
-                CommandModel requestFileModel = JsonConvert.DeserializeObject<CommandModel>(requestFileText);
-
-                if (cmdFlags == CommandModel.CommandsFlags.StartCleaning) { cmdString = requestFileModel.StartCleaningCommand; }
-                if (cmdFlags == CommandModel.CommandsFlags.StopCleaning) { cmdString = requestFileModel.StopCleaningCommand; }
-                if (cmdFlags == CommandModel.CommandsFlags.ChargeCleaning) { cmdString = requestFileModel.ChargeCleaningCommand; }
-
-                QihooRequest request = new QihooRequest
+                if (fInfo.Exists)
                 {
-                    cookie = requestFileModel.Cookie,
-                    body = cmdString
-                };
+                    string cmdString = string.Empty;
+                    string requestFileText = File.ReadAllText(fInfo.FullName);
+                    CommandModel requestFileModel = JsonConvert.DeserializeObject<CommandModel>(requestFileText);
 
-                HttpWebResponse response = new HttpWebResponse();
+                    if (cmdFlags == CommandModel.CommandsFlags.StartCleaning) { cmdString = requestFileModel.StartCleaningCommand; }
+                    if (cmdFlags == CommandModel.CommandsFlags.StopCleaning) { cmdString = requestFileModel.StopCleaningCommand; }
+                    if (cmdFlags == CommandModel.CommandsFlags.ChargeCleaning) { cmdString = requestFileModel.ChargeCleaningCommand; }
 
-                WebEngine.Request_q_smart_360_cn(request, out response);
-            }
-            else
-            {
-                Console.WriteLine("Request-file not found. Please check path.");
+                    QihooRequest request = new QihooRequest
+                    {
+                        cookie = requestFileModel.Cookie,
+                        body = cmdString
+                    };
+
+                    HttpWebResponse response = new HttpWebResponse();
+
+                    WebEngine.Request_q_smart_360_cn(request, out response);
+                }
+                else
+                {
+                    Console.WriteLine("Request-file not found. Please check path.");
+                }
             }
         }
     }
@@ -71,7 +73,7 @@ namespace _360Cmd
     {
         [Option('f', "requestfile", Required = true, HelpText = "Full path of the request-file.")]
         public string RequestFile { get; set; }
-        [Option('c', "cmd", Required = true, HelpText = "COmmand to be executed (start, stop, charge).")]
+        [Option('c', "cmd", Required = true, HelpText = "Command to be executed (start, stop, charge).")]
         public string Cmd { get; set; }
     }
 }
