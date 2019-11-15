@@ -20,7 +20,8 @@ This commandline application can be compiled on Windows, Linux and MacOS.
 **GoCharging**<br>
 360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c charge<br><br>
 
-# BeispielCode für NodeJS (bzw Iobroker)
+# Example Code for NodeJS (IoBroker)
+
 ```javascript
 const https = require('https');
 var postData = "yourReadOutCommand";
