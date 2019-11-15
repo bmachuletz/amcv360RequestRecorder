@@ -20,4 +20,40 @@ This commandline application can be compiled on Windows, Linux and MacOS.
 **GoCharging**<br>
 360Cmd.exe -f "[PATH TO amcv-result file]\2019-09-05.json" -c charge<br><br>
 
+# BeispielCode für NodeJS (bzw Iobroker)
+```javascript
+const https = require('https');
+var postData = "yourReadOutCommand";
+const options = {
+  hostname: 'q.smart.360.cn',
+  port: 443,
+  path: '/clean/cmd/send',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Length': Buffer.byteLength(postData,'utf8'),
+    'Cookie': 'yourReadOutCookie',
+    'Accept-Language': 'de-DE;q=1',
+    'Accept-Encoding': 'br, gzip, deflate'
+
+  }
+};
+
+const req = https.request(options, (res) => {
+  console.log('statusCode:'+ res.statusCode);
+  //console.log('headers:'+ res.headers);
+
+  res.on('data', (d) => {
+     //console.log(d);
+  });
+});
+
+req.on('error', (e) => {
+  console.error(e);
+});
+req.write(postData);
+req.end();
+
+```
+
 
